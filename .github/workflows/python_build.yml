@@ -20,7 +20,7 @@ jobs:
           args: >
             -Dsonar.organization=mohelendavis
             -Dsonar.projectBaseDir=other
-            -Dsonar.login=${SONAR_TOKEN}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.projectKey=mohelendavis_llama_other
             -Dsonar.sources=.
             -Dsonar.test.exclusions=tests/**
