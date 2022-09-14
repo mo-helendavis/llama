@@ -4,24 +4,26 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
 jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
-    args: >
-      -Dsonar.organization=mohelendavis
-      -Dsonar.projectKey=mohelendavis_llama_other
-      -Dsonar.sources=other/llama_stuff
-      -Dsonar.test.exclusions=tests/**
-      -Dsonar.tests=tests/
-      -Dsonar.verbose=true
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: other
+          args: >
+            -Dsonar.organization=mohelendavis
+            -Dsonar.projectKey=mohelendavis_llama_other
+            -Dsonar.sources=.
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.tests=tests/
+            -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
