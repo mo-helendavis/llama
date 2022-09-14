@@ -19,6 +19,7 @@ jobs:
           projectBaseDir: other
           args: >
             -Dsonar.organization=mohelendavis
+            -Dsonar.projectBaseDir=other
             -Dsonar.projectKey=mohelendavis_llama_other
             -Dsonar.sources=.
             -Dsonar.test.exclusions=tests/**
