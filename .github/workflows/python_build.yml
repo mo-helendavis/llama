@@ -2,8 +2,6 @@ name: Build Python
 
 on:
   pull_request:
-    paths:
-      - 'other/**'
 jobs:
   sonarcloud:
     name: SonarCloud
