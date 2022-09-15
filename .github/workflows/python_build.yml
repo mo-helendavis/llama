@@ -2,6 +2,9 @@ name: Build Python
 
 on:
   pull_request:
+    paths-ignore:
+      - 'client/**'
+      - 'server/**'
 jobs:
   sonarcloud:
     name: SonarCloud
