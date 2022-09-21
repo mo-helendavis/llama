@@ -1,22 +1,17 @@
 name: Build Python
+
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - 'client/**'
+      - 'server/**'
 jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
-    args: >
-      -Dsonar.organization=mohelendavis
-      -Dsonar.projectKey=mohelendavis_llama_other
-      -Dsonar.sources=other/llama_stuff
-      -Dsonar.test.exclusions=tests/**
-      -Dsonar.tests=tests/
-      -Dsonar.verbose=true
     steps:
+      - run: echo "$GITHUB_CONTEXT"
+        working-directory: ./other
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis

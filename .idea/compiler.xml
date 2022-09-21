@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="llama-server-a" />
+        <module name="llama-server-b" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="llama-server-a" target="1.8" />
+      <module name="llama-server-b" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
