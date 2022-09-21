@@ -18,7 +18,6 @@ jobs:
     defaults:
       run:
         working-directory: ./server/llama-server-a
-    
     steps:
       - name: Analyze with SonarCloud         
       - uses: actions/checkout@v2
