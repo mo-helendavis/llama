@@ -38,13 +38,13 @@ jobs:
 #          server-id: 'artifactory'
 #          server-username: MAVEN_USERNAME_REF
 #          server-password: MAVEN_PWD_REF
-#      - name: Cache SonarQube packages
-#        uses: actions/cache@v1
-#        with:
-#          echo: "C"
-#          path: ~/.sonar/cache
-#          key: ${{ runner.os }}-sonar
-#          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          echo: "C"
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 #      - name: Cache Maven packages
 #        uses: actions/cache@v1
 #       with:
