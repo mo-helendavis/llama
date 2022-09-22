@@ -1,0 +1,33 @@
+name: Pull Request Checks Server
+
+on:
+  pull_request:
+    paths:
+      - 'server/llama-server-a/**'
+
+jobs:
+  Server:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ./server/llama-server-a
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+          server-id: 'artifactory'
+          server-username: MAVEN_USERNAME_REF
+          server-password: MAVEN_PWD_REF
+
+      - name: Build and Test
+        run: mvn -B verify spotbugs:check
+        env:
+          MAVEN_USERNAME_REF: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PWD_REF: ${{ secrets.MAVEN_PWD }}
