@@ -1,4 +1,4 @@
-name: Pull Request Checks Server
+name: Pull Request Checks Server A
 
 on:
   pull_request:
