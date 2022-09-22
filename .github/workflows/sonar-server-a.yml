@@ -12,9 +12,9 @@ permissions:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  sonar.url: https://sonarcloud.io
-  sonar.projectKey: mohelendavis_llama_server_a
-  sonar.organization: mohelendavis
+# sonar.url: https://sonarcloud.io
+# sonar.projectKey: mohelendavis_llama_server_a
+# sonar.organization: mohelendavis
           
 jobs:
   Build:
