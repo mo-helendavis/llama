@@ -23,6 +23,10 @@ jobs:
       run:
         working-directory: ./server/llama-server-a
     steps:
+      - name: Sonar URL
+        run: echo ${{sonar.host.url}}
+      - name: Sonar Org
+        run: echo ${{sonar.organization}}
       - name: Checkout        
         uses: actions/checkout@v2
         with:
