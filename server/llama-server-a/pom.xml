@@ -17,7 +17,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <!-- Not sure if this is actually needed -->
         <sonar.junit.reportPaths>${project.basedir}/target/surefire-reports</sonar.junit.reportPaths>
-<sonar.java.spotbugs.reportPaths>${project.basedir}/target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
+        <sonar.java.spotbugs.reportPaths>${project.basedir}/target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
     </properties>
 
     <build>
@@ -67,6 +67,7 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs-maven-plugin.version}</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>medium</threshold>
