@@ -12,9 +12,9 @@ permissions:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-# sonar.url: https://sonarcloud.io
-# sonar.projectKey: mohelendavis_llama_server_a
-# sonar.organization: mohelendavis
+  SONAR_URL: https://sonarcloud.io
+  SONAR_PROJECT_KEY: mohelendavis_llama_server_a
+  SONAR_ORGANIZATION: mohelendavis
           
 jobs:
   Build:
@@ -23,10 +23,6 @@ jobs:
       run:
         working-directory: ./server/llama-server-a
     steps:
-      - name: Sonar URL
-        run: echo ${{sonar.host.url}}
-      - name: Sonar Org
-        run: echo ${{sonar.organization}}
       - name: Checkout        
         uses: actions/checkout@v2
         with:
@@ -53,5 +49,5 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=$SONAR_TOKEN
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=$SONAR_URL -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.projectKey=$SONAR_PROJECT_KEY 
 
