@@ -24,7 +24,7 @@ jobs:
         working-directory: ./server/llama-server-a
     steps:
       - name: Checkout        
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with:
           echo: "A"
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
